@@ -1,0 +1,27 @@
+<div>
+  <table>
+    <thead>
+      <th>Sr.No.</th>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let items of arrObj"
+        [ngClass]="{ 'click-item': items.completed }"
+      >
+        <td>{{ items.id }}</td>
+        <td>{{ items.title }}</td>
+        <td>{{ items.completed ? 'Completed' : 'Incomplete' }}</td>
+        <td>
+          <input
+            type="checkbox"
+            [checked]="!items.completed"
+            (change)="onAction(items)"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
